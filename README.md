@@ -60,6 +60,8 @@ Fyra funktioner använder `.then()`. Skriv om var och en till en `async function
 
 Skriv `hamtaTvaRatterEfterVarandra` med två `await` i rad, och `hamtaTvaRatterParallellt` med `Promise.all`. Två tester mäter tiden. Skriv i `docs/async-anteckningar.md` (eller i en kommentar) varför den parallella är snabbare.
 
+**Kommentar:** Två await i rad leder till att det andra anropet startar först när det första är klart. Om varje anrop tar 100 ms så blir det totalt 200 ms. Om vi i stället startar anropen samtidigt så får vi den längsta tiden av dem, vilket endast är 100 ms!
+
 ### Steg 5. Försök igen och tidsgräns
 
 Skriv `hamtaMedForsok` (en loop med `try/catch` som försöker upp till `maxForsok` gånger) och `medTimeout` (`Promise.race` mellan din promise och en timer som avvisar). Börja med att skriva på papper vad som ska hända vid försök 1, 2 och 3.
