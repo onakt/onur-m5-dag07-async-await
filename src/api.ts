@@ -42,13 +42,24 @@ export async function hamtaTvaRatterParallellt(id1: number, id2: number, ms: num
 //    Lyckas något försök: returnera resultatet. Misslyckas alla: kasta det SISTA felet.
 //    Tips: en for-loop med try/catch inuti, och spara det senaste felet i en variabel.
 export async function hamtaMedForsok<T>(anropFn: () => Promise<T>, maxForsok: number): Promise<T> {
-  // TODO
+  let senasteFel;
+  for (let i = 0; i < maxForsok; i++) {
+    try {
+      return await anropFn();
+    } catch (fel) {
+      senasteFel = fel;
+    }
+  }
+  throw senasteFel;
 }
 
 // 7. Ge en promise en tidsgräns. Är den inte klar inom ms millisekunder: avvisa med
 //    new Error("Tidsgränsen överskreds"). Tips: Promise.race med en promise som avvisas efter ms.
 export function medTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
-  // TODO
+  const tidsgrans = new Promise<T>((_, reject) => {
+    setTimeout(() => reject(new Error("Tidsgränsen överskreds")), ms);
+  });
+  return Promise.race([promise, tidsgrans]);
 }
 
 // 8. Tillståndsmaskinen för att ladda något: laddar -> klar / tomt / fel.
