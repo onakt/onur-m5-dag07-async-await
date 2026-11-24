@@ -74,6 +74,8 @@ Skriv `laddaMeny(hamtaFn, vidTillstand)`. Först `laddar`, sedan antingen `klar`
 
 Öppna `index.html` med Vite-servern. Tryck på *Ladda menyn*. Prova rutorna *Simulera fel* och *Simulera tom lista*. Öppna Console och DevTools. Ser du de fyra tillstånden? Du behöver inte ändra `src/demo.ts`.
 
+**Kommentar:** Alla tillstånd syns tydligt på sidan men fick inte upp något i console. Jag loggar nu även tillståndet i console och de syns tydligt vid simuleringen.
+
 ### Steg 8. Fördjupning (frivillig): allSettled
 
 Skriv `hamtaAllaForsiktigt(idLista)` som hämtar många rätter parallellt med `Promise.allSettled` och returnerar `{ lyckade, misslyckade }`. Skriv egna tester i en ny fil `src/extra-tests.ts`.
