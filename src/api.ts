@@ -69,5 +69,17 @@ export function medTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
 //      { typ: "tomt" }                         om listan är tom
 //      { typ: "fel", meddelande: "..." }       om hamtaFn misslyckas (felets message)
 export async function laddaMeny(hamtaFn: () => Promise<Ratt[]>, vidTillstand: (tillstand: Tillstand) => void): Promise<void> {
-  // TODO
+  vidTillstand({typ: "laddar"});
+
+  try {
+    const ratter = await hamtaFn();
+
+    if (ratter.length > 0) {
+      vidTillstand({typ: "klar", ratter: ratter});
+    } else {
+      vidTillstand({typ: "tomt"});
+    }
+  } catch (fel) {
+    vidTillstand({typ: "fel", meddelande: fel instanceof Error ? fel.message : String(fel)});
+  }
 }
