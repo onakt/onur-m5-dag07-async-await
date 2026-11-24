@@ -82,12 +82,12 @@ Skriv `hamtaAllaForsiktigt(idLista)` som hämtar många rätter parallellt med `
 
 ## Kontrollista: så vet du att du är klar
 
-- [ ] Alla tester på `tests.html` är gröna.
-- [ ] Alla fyra funktioner i `src/kedjor.ts` är `async` och saknar `.then()`.
-- [ ] Du kan förklara skillnaden på att fånga ett fel i funktionen och att låta det följa med.
-- [ ] Du kan förklara varför `Promise.all` är snabbare än två `await` i rad.
-- [ ] `index.html` visar alla fyra tillstånden.
-- [ ] Du har gjort minst fem commits med beskrivande meddelanden.
+- [X] Alla tester på `tests.html` är gröna.
+- [X] Alla fyra funktioner i `src/kedjor.ts` är `async` och saknar `.then()`.
+- [X] Du kan förklara skillnaden på att fånga ett fel i funktionen och att låta det följa med.
+- [X] Du kan förklara varför `Promise.all` är snabbare än två `await` i rad.
+- [X] `index.html` visar alla fyra tillstånden.
+- [X] Du har gjort minst fem commits med beskrivande meddelanden.
 
 ## Tips om du fastnar
 
